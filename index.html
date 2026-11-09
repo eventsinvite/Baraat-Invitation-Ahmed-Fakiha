@@ -1,0 +1,1206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation | Ahmed & Fakiha</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --red: #500b15;
+    --deep: #27050b;
+    --wine: #741c27;
+    --gold: #d8b36a;
+    --light-gold: #f5dfaa;
+    --cream: #fff5e7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--deep);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    top: -20px;
+    color: var(--gold);
+    opacity: .65;
+    animation: falling linear infinite;
+}
+
+@keyframes falling {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* PAGE SYSTEM */
+
+.page {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 16px;
+    background:
+        radial-gradient(ellipse at center, #70202a 0%, #410b14 58%, #210309 100%);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(70px) scale(.96);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,.8,.25,1),
+        visibility .8s;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+    z-index: 3;
+}
+
+.page.exit {
+    transform: translateX(-70px) scale(.96);
+    opacity: 0;
+}
+
+/* GOLD FRAME */
+
+.frame {
+    width: min(100%, 690px);
+    min-height: min(85vh, 820px);
+    position: relative;
+    padding: 65px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(232,197,126,.7);
+    outline: 1px solid rgba(232,197,126,.3);
+    outline-offset: 8px;
+    background:
+        linear-gradient(145deg, rgba(255,255,255,.045), rgba(0,0,0,.12));
+    box-shadow: 0 0 45px rgba(0,0,0,.4),
+                inset 0 0 45px rgba(0,0,0,.18);
+}
+
+.frame::before,
+.frame::after {
+    content: "✧";
+    position: absolute;
+    color: var(--gold);
+    font-size: 42px;
+}
+
+.frame::before {
+    top: 12px;
+    left: 16px;
+}
+
+.frame::after {
+    bottom: 12px;
+    right: 16px;
+}
+
+.corner {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: .8;
+}
+
+.tl {top: 8px; left: 8px; border-width: 1px 0 0 1px;}
+.tr {top: 8px; right: 8px; border-width: 1px 1px 0 0;}
+.bl {bottom: 8px; left: 8px; border-width: 0 0 1px 1px;}
+.br {bottom: 8px; right: 8px; border-width: 0 1px 1px 0;}
+
+.content {
+    width: 100%;
+    position: relative;
+    z-index: 4;
+    animation: reveal 1.1s ease both;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    color: var(--gold);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.gold-line {
+    width: 110px;
+    height: 1px;
+    margin: 23px auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+.script {
+    font-family: 'Great Vibes', cursive;
+    color: var(--light-gold);
+    font-weight: 400;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.ornament {
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 7px;
+    margin: 18px 0;
+}
+
+/* BUTTONS */
+
+.gold-btn {
+    padding: 15px 32px;
+    color: #35070d;
+    background: linear-gradient(135deg, #f6dfaa, #c79b50, #f3d99e);
+    border: 1px solid #f8e5b5;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: .35s;
+    box-shadow: 0 5px 22px rgba(0,0,0,.2);
+}
+
+.gold-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(216,179,106,.3);
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.back-btn {
+    background: transparent;
+    color: var(--light-gold);
+    border: 1px solid rgba(216,179,106,.6);
+    padding: 14px 24px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.back-btn:hover {
+    background: rgba(216,179,106,.12);
+}
+
+/* PAGE 1 */
+
+.cover {
+    background:
+        radial-gradient(ellipse at center, #751c2a 0%, #440b16 60%, #23050b 100%);
+}
+
+.cover .frame {
+    min-height: min(82vh, 760px);
+}
+
+.cover-flower {
+    font-size: 48px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.cover h1 {
+    font-size: clamp(42px, 9vw, 76px);
+    line-height: 1.1;
+    margin: 22px 0;
+}
+
+.cover .script {
+    font-size: clamp(35px, 7vw, 54px);
+}
+
+.cover-text {
+    color: #f0dfc5;
+    font-size: 11px;
+    letter-spacing: 3px;
+    line-height: 2;
+}
+
+.open-wrap {
+    margin-top: 45px;
+}
+
+.open-wrap .gold-btn {
+    padding: 18px 43px;
+    font-size: 11px;
+    animation: glow 2.5s infinite;
+}
+
+@keyframes glow {
+    0%,100% {box-shadow: 0 0 10px rgba(216,179,106,.15);}
+    50% {box-shadow: 0 0 30px rgba(216,179,106,.5);}
+}
+
+.cover-bottom {
+    margin-top: 35px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #d6bc94;
+}
+
+/* PAGE 2 */
+
+.bismillah {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 7vw, 48px);
+    direction: rtl;
+    color: var(--light-gold);
+    margin: 24px 0;
+}
+
+.message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.7;
+    color: #f4e7d4;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.small-text {
+    font-size: 11px;
+    color: #dfc9aa;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+/* PAGE 3 */
+
+.couple-title {
+    font-size: clamp(32px, 7vw, 47px);
+    margin: 15px 0;
+}
+
+.couple-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(38px, 9vw, 58px);
+    color: var(--light-gold);
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.family {
+    color: #e6d2b5;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+}
+
+.and {
+    font-family: 'Great Vibes', cursive;
+    color: var(--gold);
+    font-size: 42px;
+    margin: 12px 0;
+}
+
+.couple-box {
+    padding: 12px;
+    border-top: 1px solid rgba(216,179,106,.4);
+    border-bottom: 1px solid rgba(216,179,106,.4);
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+/* PAGE 4 */
+
+.event-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: var(--light-gold);
+    margin: 12px 0;
+}
+
+.date-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 12vw, 75px);
+    color: var(--light-gold);
+    line-height: 1.1;
+}
+
+.date-month {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    color: var(--gold);
+    letter-spacing: 5px;
+}
+
+.timeline {
+    max-width: 400px;
+    margin: 28px auto 0;
+    text-align: left;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    padding: 13px 10px;
+    border-bottom: 1px solid rgba(216,179,106,.2);
+}
+
+.timeline-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 17px;
+}
+
+.timeline-item h3 {
+    font-size: 17px;
+    color: var(--light-gold);
+}
+
+.timeline-item p {
+    font-size: 11px;
+    color: #d8c3a7;
+    margin-top: 5px;
+}
+
+/* PAGE 5 */
+
+.venue-icon {
+    font-size: 37px;
+    color: var(--gold);
+    margin: 15px 0;
+}
+
+.venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(27px, 6vw, 37px);
+    color: var(--light-gold);
+    line-height: 1.3;
+}
+
+.address {
+    color: #e9d8bd;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.6;
+    margin: 14px auto;
+    max-width: 390px;
+}
+
+.contact {
+    margin: 22px auto;
+    color: #e4cfad;
+    font-size: 12px;
+    line-height: 2;
+}
+
+.contact strong {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+.closing {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: var(--light-gold);
+    margin-top: 22px;
+}
+
+.map-btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 12px;
+}
+
+/* MUSIC CONTROL */
+
+.music-control {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 20;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: #450b15;
+    color: var(--gold);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.music-control.playing {
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    to {transform: rotate(360deg);}
+}
+
+/* PAGE COUNTER */
+
+.page-counter {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    color: #e9d2a7;
+    font-size: 9px;
+    letter-spacing: 4px;
+    display: none;
+}
+
+/* MOBILE */
+
+
+/* MOBILE RESPONSIVE FIX */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .page {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100dvh;
+        padding: 18px 16px;
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .frame {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        margin: 10px auto;
+        padding: 55px 18px 35px;
+        outline-offset: 4px;
+        flex-shrink: 0;
+    }
+
+    .content {
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .corner {
+        width: 42px;
+        height: 42px;
+    }
+
+    .cover .frame {
+        min-height: calc(100dvh - 56px);
+        display: flex;
+        align-items: center;
+    }
+
+    .cover h1 {
+        font-size: clamp(38px, 10vw, 58px);
+    }
+
+    .cover .script {
+        font-size: clamp(30px, 8vw, 43px);
+    }
+
+    .cover-flower {
+        font-size: 38px;
+    }
+
+    .cover-text {
+        font-size: 10px;
+    }
+
+    .cover-bottom {
+        margin-top: 25px;
+    }
+
+    .open-wrap {
+        margin-top: 30px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .message {
+        font-size: 19px;
+        line-height: 1.6;
+    }
+
+    .bismillah {
+        font-size: clamp(25px, 7vw, 38px);
+        line-height: 1.8;
+    }
+
+    .couple-name {
+        font-size: clamp(35px, 9vw, 46px);
+        overflow-wrap: anywhere;
+    }
+
+    .couple-title {
+        font-size: 35px;
+    }
+
+    .family {
+        font-size: 18px;
+    }
+
+    .event-title {
+        font-size: 40px;
+    }
+
+    .date-number {
+        font-size: 60px;
+    }
+
+    .date-month {
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
+
+    .timeline {
+        margin-top: 18px;
+    }
+
+    .timeline-item {
+        padding: 11px 5px;
+    }
+
+    .venue-name {
+        font-size: 29px;
+    }
+
+    .address {
+        font-size: 19px;
+    }
+
+    .closing {
+        font-size: 31px;
+    }
+
+    .nav-buttons {
+        margin-top: 24px;
+        gap: 10px;
+    }
+
+    .gold-btn,
+    .back-btn {
+        padding: 13px 18px;
+        font-size: 9px;
+    }
+
+    .music-control {
+        right: 12px;
+        top: 12px;
+    }
+
+    .page-counter {
+        bottom: 8px;
+    }
+}
+
+/* SMALL HEIGHT MOBILE FIX */
+
+@media (max-height: 700px) {
+
+    .page {
+        align-items: flex-start;
+        padding-top: 18px;
+        padding-bottom: 25px;
+    }
+
+    .frame {
+        min-height: auto;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        padding-top: 45px;
+        padding-bottom: 30px;
+    }
+
+    .cover .frame {
+        min-height: calc(100dvh - 45px);
+    }
+
+    .cover-flower {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .cover h1 {
+        margin: 14px 0;
+    }
+
+    .gold-line {
+        margin: 15px auto;
+    }
+
+    .ornament {
+        margin: 12px 0;
+    }
+
+    .open-wrap {
+        margin-top: 25px;
+    }
+
+    .cover-bottom {
+        margin-top: 20px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<audio id="weddingMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-control" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle music">♫</button>
+
+<div class="page-counter" id="counter">01 / 05</div>
+
+<!-- PAGE 1: OPEN INVITATION -->
+
+<section class="page cover active" id="page1">
+    <div class="frame">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <div class="content">
+
+            <div class="cover-flower">❀</div>
+
+            <p class="eyebrow">A Beautiful Beginning</p>
+
+            <div class="gold-line"></div>
+
+            <p class="script">Together with their families</p>
+
+            <h1 class="gold">Wedding<br>Invitation</h1>
+
+            <div class="ornament">✧ ❧ ✧</div>
+
+            <p class="cover-text">
+                A CELEBRATION OF LOVE<br>
+                FAITH & TOGETHERNESS
+            </p>
+
+            <div class="open-wrap">
+                <button class="gold-btn" onclick="openInvitation()">
+                    ✧ Open Invitation ✧
+                </button>
+            </div>
+
+            <p class="cover-bottom">
+                YOU ARE CORDIALLY INVITED
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 2: BISMILLAH -->
+
+<section class="page" id="page2">
+    <div class="frame">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <div class="content">
+
+            <p class="eyebrow">In the name of Allah</p>
+
+            <div class="bismillah">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </div>
+
+            <div class="gold-line"></div>
+
+            <div class="ornament">❧ ❀ ❧</div>
+
+            <h2 class="script" style="font-size:49px;">
+                Alhamdulillah
+            </h2>
+
+            <div class="gold-line"></div>
+
+            <p class="message">
+                With the blessings of Almighty Allah,
+                we joyfully invite you to share in
+                a beautiful beginning and grace
+                this special occasion with your
+                presence and prayers.
+            </p>
+
+            <div class="ornament">✧</div>
+
+            <p class="small-text">
+                YOUR PRESENCE WILL MAKE<br>
+                OUR CELEBRATION EVEN MORE SPECIAL.
+            </p>
+
+            <div class="nav-buttons">
+                <button class="back-btn" onclick="changePage(-1)">BACK</button>
+                <button class="gold-btn" onclick="changePage(1)">CONTINUE →</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 3: THE COUPLE -->
+
+<section class="page" id="page3">
+    <div class="frame">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <div class="content">
+
+            <p class="eyebrow">Two Souls, One Beautiful Journey</p>
+
+            <h2 class="script couple-title">
+                The Happy Couple
+            </h2>
+
+            <div class="ornament">❀ ✧ ❀</div>
+
+            <div class="couple-box">
+
+                <p class="small-text">THE BRIDE</p>
+
+                <h1 class="couple-name">
+Fakiha Shahid
+                </h1>
+
+                <p class="family">
+                    Daughter of Shahid Mateen
+                </p>
+
+                <div class="and">&</div>
+
+                <p class="small-text">THE GROOM</p>
+
+                <h1 class="couple-name">
+                    Muhammad Ahmed Ibrahim
+                </h1>
+
+                <p class="family">
+                    Son of Muhammad Ibrahim 
+                </p>
+
+            </div>
+
+            <div class="ornament">✧ ❧ ✧</div>
+
+            <p class="small-text">
+                JOIN US AS WE BEGIN<br>
+                A NEW CHAPTER TOGETHER.
+            </p>
+
+            <div class="nav-buttons">
+                <button class="back-btn" onclick="changePage(-1)">BACK</button>
+                <button class="gold-btn" onclick="changePage(1)">CONTINUE →</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 4: EVENT DETAILS -->
+
+<section class="page" id="page4">
+    <div class="frame">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <div class="content">
+
+            <p class="eyebrow">Save The Date</p>
+
+            <h2 class="event-title">The Celebration</h2>
+
+            <div class="gold-line"></div>
+
+            <div class="date-number">28</div>
+
+            <p class="date-month">NOVEMBER 2026</p>
+
+            <div class="ornament">✧ ❀ ✧</div>
+
+            <p class="small-text">
+                SATURDAY • A NIGHT TO REMEMBER
+            </p>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">✧</div>
+                    <div>
+                        <h3>Gathering</h3>
+                        <p>9:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">❀</div>
+                    <div>
+                        <h3>Dinner</h3>
+                        <p>10:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">♡</div>
+                    <div>
+                        <h3>Rukhsati</h3>
+                        <p>11:00 PM</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="nav-buttons">
+                <button class="back-btn" onclick="changePage(-1)">BACK</button>
+                <button class="gold-btn" onclick="changePage(1)">VENUE →</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 5: VENUE -->
+
+<section class="page" id="page5">
+    <div class="frame">
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <div class="content">
+
+            <p class="eyebrow">We Would Love To See You</p>
+
+            <h2 class="script" style="font-size:49px;">
+                The Venue
+            </h2>
+
+            <div class="venue-icon">♛</div>
+
+            <h2 class="venue-name">
+                Bagh Bahar Islamia
+            </h2>
+
+            <div class="gold-line"></div>
+
+            <p class="address">
+                Plot No. SNPA-19,<br>
+                Shaheed-e-Millat Road,<br>
+                Karachi, Pakistan.
+            </p>
+
+            <a class="gold-btn map-btn"
+               href="https://www.google.com/maps/search/?api=1&query=Bagh+Bahar+Islamia+SNPA-19+Shaheed-e-Millat+Road+Karachi"
+               target="_blank"
+               rel="noopener">
+                ⌖ VIEW LOCATION
+            </a>
+
+            <div class="ornament">✧ ❀ ✧</div>
+
+            <div class="contact">
+                <strong>FOR INFORMATION</strong><br>
+                0300 2350477<br>
+                0321 5231331
+            </div>
+
+            <div class="gold-line"></div>
+
+            <p class="closing">
+                Your Presence Is Our Blessing
+            </p>
+
+            <p class="small-text" style="margin-top:10px;">
+                WITH LOVE & BEST WISHES
+            </p>
+
+            <div class="nav-buttons">
+                <button class="back-btn" onclick="changePage(-1)">BACK</button>
+                <button class="gold-btn" onclick="changePage(0)">RESTART INVITATION ↻</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+const pages = document.querySelectorAll('.page');
+const music = document.getElementById('weddingMusic');
+const musicBtn = document.getElementById('musicBtn');
+const counter = document.getElementById('counter');
+
+let currentPage = 0;
+let musicStarted = false;
+let isPlaying = false;
+let transitioning = false;
+
+// OPEN INVITATION AND START MUSIC
+
+function openInvitation() {
+
+    // Invitation ko music se independent open karein
+    goToPage(1);
+
+    // Music ko sirf ek baar start karne ki koshish karein
+    if (!musicStarted) {
+
+        music.volume = 0.65;
+
+        try {
+            const playPromise = music.play();
+
+            if (playPromise !== undefined) {
+
+                playPromise.then(() => {
+                    musicStarted = true;
+                    isPlaying = true;
+                    updateMusicButton();
+
+                }).catch(() => {
+                    // Music unavailable ho tab bhi invitation open rahe
+                    musicStarted = false;
+                    isPlaying = false;
+                    updateMusicButton();
+                });
+
+            }
+
+        } catch (error) {
+            musicStarted = false;
+            isPlaying = false;
+            updateMusicButton();
+        }
+    }
+}
+
+// PAGE TRANSITIONS
+
+function goToPage(index) {
+
+    if (transitioning) return;
+
+    transitioning = true;
+
+    pages[currentPage].classList.remove('active');
+    pages[currentPage].classList.add('exit');
+
+    const oldPage = currentPage;
+
+    currentPage = index;
+
+    setTimeout(() => {
+
+        pages[oldPage].classList.remove('exit');
+
+        pages[currentPage].classList.add('active');
+
+        counter.textContent =
+            String(currentPage + 1).padStart(2, '0') + " / 05";
+
+        setTimeout(() => {
+            transitioning = false;
+        }, 800);
+
+    }, 150);
+}
+
+// NEXT / BACK
+
+function changePage(direction) {
+
+    if (transitioning) return;
+
+    if (direction === 0) {
+        goToPage(0);
+        return;
+    }
+
+    let next = currentPage + direction;
+
+    if (next < 0 || next >= pages.length) return;
+
+    goToPage(next);
+}
+
+// MUSIC BUTTON
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play().then(() => {
+            isPlaying = true;
+            updateMusicButton();
+        }).catch(() => {
+            isPlaying = false;
+            updateMusicButton();
+        });
+
+    } else {
+
+        music.pause();
+        isPlaying = false;
+        updateMusicButton();
+
+    }
+}
+
+function updateMusicButton() {
+
+    musicBtn.style.display = "flex";
+
+    musicBtn.classList.toggle('playing', isPlaying);
+
+    musicBtn.innerHTML = isPlaying ? "♫" : "♪";
+}
+
+music.addEventListener('play', () => {
+    isPlaying = true;
+    updateMusicButton();
+});
+
+music.addEventListener('pause', () => {
+    isPlaying = false;
+    updateMusicButton();
+});
+
+// GOLDEN FALLING PARTICLES
+
+const particleContainer = document.getElementById('particles');
+
+function createParticles() {
+
+    const symbols = ['✦', '✧', '❀', '·', '✥'];
+
+    for (let i = 0; i < 24; i++) {
+
+        const particle = document.createElement('span');
+
+        particle.className = 'particle';
+
+        particle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        particle.style.left = Math.random() * 100 + '%';
+
+        particle.style.fontSize =
+            (8 + Math.random() * 12) + 'px';
+
+        particle.style.animationDuration =
+            (7 + Math.random() * 12) + 's';
+
+        particle.style.animationDelay =
+            (Math.random() * 10) + 's';
+
+        particleContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+</script>
+
+</body>
+</html>
